@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+height:100%;
+background:#0f0f0f;
+font-family:Arial,Helvetica,sans-serif;
+color:#ffffff;
+overflow-y:scroll;
+scrollbar-width:none;
+}
+
+body::-webkit-scrollbar{
+display:none;
+}
+
+.page{
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+transition:filter .3s ease;
+}
+
+.page.blur{
+filter:blur(6px);
+}
+
+.center-image{
+width:75px;
+height:auto;
+margin-bottom:20px;
+border-radius:10px;
+}
+
+h3{
+font-size:20px;
+margin-bottom:6px;
+}
+
+.subtext{
+font-size:14px;
+opacity:.7;
+}
+
+.sheet-overlay{
+position:fixed;
+left:0;
+bottom:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:flex-end;
+pointer-events:none;
+}
+
+.sheet{
+width:100%;
+background:#181818;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+padding:18px;
+transform:translateY(100%);
+transition:transform .35s ease;
+pointer-events:auto;
+}
+
+.sheet.open{
+transform:translateY(0);
+}
+
+.handle{
+width:40px;
+height:5px;
+background:#444444;
+border-radius:50px;
+margin:0 auto 18px auto;
+}
+
+.menu-text{
+text-align:left;
+margin-bottom:22px;
+}
+
+.menu-text .title{
+font-weight:bold;
+margin-bottom:4px;
+}
+
+.menu-text .desc{
+font-size:14px;
+opacity:.75;
+}
+
+.buttons{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+button{
+width:100%;
+padding:14px;
+background:#2a2a2a;
+border:none;
+border-radius:10px;
+color:#ffffff;
+font-size:15px;
+}
+
+button:active{
+opacity:.8;
+}
+
+@media (min-width:700px){
+
+.page{
+max-width:420px;
+margin:auto;
+}
+
+.sheet{
+max-width:420px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="pageContent" class="page">
+
+<img src="https://1337https.github.io/ceedga/assets/media/branding/rounded-logo.png" class="center-image">
+
+<h3>NexusTok</h3>
+<div class="subtext">TikTok, but better.</div>
+
+</div>
+
+<div class="sheet-overlay">
+
+<div id="sheetMenu" class="sheet">
+
+<div id="sheetHandle" class="handle"></div>
+
+<div class="menu-text">
+<div class="title">NexusTok</div>
+<div class="desc">The most advanced modification for TikTok, created and developed by NexusByte Developer (founder of NexusByte Initiative). Thank you for downloading and using our best project yet! Feel free to join our Discord server for the latest updates and news.</div>
+</div>
+    
+    <br>
+
+<div class="buttons">
+<button onclick="goToPage()">Discord server</button>
+<button onclick="closeMenu()">Close</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const sheet=document.getElementById("sheetMenu");
+const page=document.getElementById("pageContent");
+
+setTimeout(()=>{
+sheet.classList.add("open");
+page.classList.add("blur");
+},2000);
+
+function closeMenu(){
+sheet.classList.remove("open");
+page.classList.remove("blur");
+
+setTimeout(()=>{
+window.location.href="https://1337https.github.io/ceedga/application/home/for-you.html";
+},2000);
+}
+
+document.getElementById("sheetHandle").onclick=closeMenu;
+
+function goToPage(){
+window.location.href="https://discord.com";
+}
+
+</script>
+
+</body>
+</html>
